@@ -30,3 +30,17 @@ function Show-GoWorkingDirectories() {
 }
 Set-Alias wdlist Show-GoWorkingDirectories
 ```
+
+# Linux
+
+Save to path as `swd`. Then add alias with Bash:
+
+```bash
+function lwd() {
+    local name="${1:-default}"
+    local path=$(swd -l $name)
+    if [ $? -eq 0 ]; then
+        cd $path
+    fi
+}
+```
